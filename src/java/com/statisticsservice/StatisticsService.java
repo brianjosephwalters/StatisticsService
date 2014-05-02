@@ -7,6 +7,7 @@
 package com.statisticsservice;
 
 import com.statisticsservice.business.StatisticsServiceImpl;
+import com.statisticsservice.certificateservice.Certificate;
 import com.statisticsservice.courseservice.Course;
 import com.statisticsservice.dolservices.Occupation;
 import com.statisticsservice.dolservices.Skill;
@@ -76,6 +77,12 @@ public class StatisticsService {
     public List<Course> getMostSearchedCourses(
             @WebParam(name = "max") Integer max) {
         return impl.getMostSearchedCourses(max);
+    }
+    
+    @WebMethod(operationName = "getMostSearchedCertificates")
+    public List<Certificate> getMostSearchedCertificates(
+            @WebParam(name = "max") Integer max) {
+        return impl.getMostSearchedForCertificate(max);
     }
     
 }
