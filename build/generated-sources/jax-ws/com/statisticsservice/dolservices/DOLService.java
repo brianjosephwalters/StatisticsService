@@ -28,99 +28,6 @@ public interface DOLService {
 
     /**
      * 
-     * @param occupationID
-     * @param skillID
-     * @return
-     *     returns boolean
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "dropSkillFromOccupation", targetNamespace = "http://dol.com/", className = "com.statisticsservice.dolservices.DropSkillFromOccupation")
-    @ResponseWrapper(localName = "dropSkillFromOccupationResponse", targetNamespace = "http://dol.com/", className = "com.statisticsservice.dolservices.DropSkillFromOccupationResponse")
-    @Action(input = "http://dol.com/DOLService/dropSkillFromOccupationRequest", output = "http://dol.com/DOLService/dropSkillFromOccupationResponse")
-    public boolean dropSkillFromOccupation(
-        @WebParam(name = "skillID", targetNamespace = "")
-        Integer skillID,
-        @WebParam(name = "occupationID", targetNamespace = "")
-        Integer occupationID);
-
-    /**
-     * 
-     * @param skillID
-     * @return
-     *     returns java.util.List<com.statisticsservice.dolservices.Occupation>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getOccupationFromSkill", targetNamespace = "http://dol.com/", className = "com.statisticsservice.dolservices.GetOccupationFromSkill")
-    @ResponseWrapper(localName = "getOccupationFromSkillResponse", targetNamespace = "http://dol.com/", className = "com.statisticsservice.dolservices.GetOccupationFromSkillResponse")
-    @Action(input = "http://dol.com/DOLService/getOccupationFromSkillRequest", output = "http://dol.com/DOLService/getOccupationFromSkillResponse")
-    public List<Occupation> getOccupationFromSkill(
-        @WebParam(name = "skillID", targetNamespace = "")
-        Integer skillID);
-
-    /**
-     * 
-     * @param skillType
-     * @return
-     *     returns java.util.List<com.statisticsservice.dolservices.Skill>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getSkillsByType", targetNamespace = "http://dol.com/", className = "com.statisticsservice.dolservices.GetSkillsByType")
-    @ResponseWrapper(localName = "getSkillsByTypeResponse", targetNamespace = "http://dol.com/", className = "com.statisticsservice.dolservices.GetSkillsByTypeResponse")
-    @Action(input = "http://dol.com/DOLService/getSkillsByTypeRequest", output = "http://dol.com/DOLService/getSkillsByTypeResponse")
-    public List<Skill> getSkillsByType(
-        @WebParam(name = "skillType", targetNamespace = "")
-        String skillType);
-
-    /**
-     * 
-     * @param skillType
-     * @return
-     *     returns java.util.List<com.statisticsservice.dolservices.Occupation>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getOccupationsByType", targetNamespace = "http://dol.com/", className = "com.statisticsservice.dolservices.GetOccupationsByType")
-    @ResponseWrapper(localName = "getOccupationsByTypeResponse", targetNamespace = "http://dol.com/", className = "com.statisticsservice.dolservices.GetOccupationsByTypeResponse")
-    @Action(input = "http://dol.com/DOLService/getOccupationsByTypeRequest", output = "http://dol.com/DOLService/getOccupationsByTypeResponse")
-    public List<Occupation> getOccupationsByType(
-        @WebParam(name = "skillType", targetNamespace = "")
-        String skillType);
-
-    /**
-     * 
-     * @param occupationID
-     * @param skillID
-     */
-    @WebMethod
-    @RequestWrapper(localName = "addSkillToOccupation", targetNamespace = "http://dol.com/", className = "com.statisticsservice.dolservices.AddSkillToOccupation")
-    @ResponseWrapper(localName = "addSkillToOccupationResponse", targetNamespace = "http://dol.com/", className = "com.statisticsservice.dolservices.AddSkillToOccupationResponse")
-    @Action(input = "http://dol.com/DOLService/addSkillToOccupationRequest", output = "http://dol.com/DOLService/addSkillToOccupationResponse")
-    public void addSkillToOccupation(
-        @WebParam(name = "occupationID", targetNamespace = "")
-        Integer occupationID,
-        @WebParam(name = "skillID", targetNamespace = "")
-        Integer skillID);
-
-    /**
-     * 
-     * @param occupationID
-     * @return
-     *     returns java.util.List<com.statisticsservice.dolservices.Skill>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getSkillsFromOccupation", targetNamespace = "http://dol.com/", className = "com.statisticsservice.dolservices.GetSkillsFromOccupation")
-    @ResponseWrapper(localName = "getSkillsFromOccupationResponse", targetNamespace = "http://dol.com/", className = "com.statisticsservice.dolservices.GetSkillsFromOccupationResponse")
-    @Action(input = "http://dol.com/DOLService/getSkillsFromOccupationRequest", output = "http://dol.com/DOLService/getSkillsFromOccupationResponse")
-    public List<Skill> getSkillsFromOccupation(
-        @WebParam(name = "occupationID", targetNamespace = "")
-        Integer occupationID);
-
-    /**
-     * 
      * @return
      *     returns java.util.List<com.statisticsservice.dolservices.Skill>
      */
@@ -130,6 +37,26 @@ public interface DOLService {
     @ResponseWrapper(localName = "getAllSkillsResponse", targetNamespace = "http://dol.com/", className = "com.statisticsservice.dolservices.GetAllSkillsResponse")
     @Action(input = "http://dol.com/DOLService/getAllSkillsRequest", output = "http://dol.com/DOLService/getAllSkillsResponse")
     public List<Skill> getAllSkills();
+
+    /**
+     * 
+     * @param skillID
+     * @return
+     *     returns com.statisticsservice.dolservices.Skill
+     * @throws NonexistentSkillException_Exception
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getSkill", targetNamespace = "http://dol.com/", className = "com.statisticsservice.dolservices.GetSkill")
+    @ResponseWrapper(localName = "getSkillResponse", targetNamespace = "http://dol.com/", className = "com.statisticsservice.dolservices.GetSkillResponse")
+    @Action(input = "http://dol.com/DOLService/getSkillRequest", output = "http://dol.com/DOLService/getSkillResponse", fault = {
+        @FaultAction(className = NonexistentSkillException_Exception.class, value = "http://dol.com/DOLService/getSkill/Fault/NonexistentSkillException")
+    })
+    public Skill getSkill(
+        @WebParam(name = "skillID", targetNamespace = "")
+        String skillID)
+        throws NonexistentSkillException_Exception
+    ;
 
     /**
      * 
@@ -165,22 +92,32 @@ public interface DOLService {
 
     /**
      * 
-     * @param skillID
+     * @param occupationID
      * @return
-     *     returns com.statisticsservice.dolservices.Skill
-     * @throws NonexistentSkillException_Exception
+     *     returns java.util.List<com.statisticsservice.dolservices.Skill>
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getSkill", targetNamespace = "http://dol.com/", className = "com.statisticsservice.dolservices.GetSkill")
-    @ResponseWrapper(localName = "getSkillResponse", targetNamespace = "http://dol.com/", className = "com.statisticsservice.dolservices.GetSkillResponse")
-    @Action(input = "http://dol.com/DOLService/getSkillRequest", output = "http://dol.com/DOLService/getSkillResponse", fault = {
-        @FaultAction(className = NonexistentSkillException_Exception.class, value = "http://dol.com/DOLService/getSkill/Fault/NonexistentSkillException")
-    })
-    public Skill getSkill(
+    @RequestWrapper(localName = "getSkillsFromOccupation", targetNamespace = "http://dol.com/", className = "com.statisticsservice.dolservices.GetSkillsFromOccupation")
+    @ResponseWrapper(localName = "getSkillsFromOccupationResponse", targetNamespace = "http://dol.com/", className = "com.statisticsservice.dolservices.GetSkillsFromOccupationResponse")
+    @Action(input = "http://dol.com/DOLService/getSkillsFromOccupationRequest", output = "http://dol.com/DOLService/getSkillsFromOccupationResponse")
+    public List<Skill> getSkillsFromOccupation(
+        @WebParam(name = "occupationID", targetNamespace = "")
+        String occupationID);
+
+    /**
+     * 
+     * @param skillID
+     * @return
+     *     returns java.util.List<com.statisticsservice.dolservices.Occupation>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getOccupationFromSkill", targetNamespace = "http://dol.com/", className = "com.statisticsservice.dolservices.GetOccupationFromSkill")
+    @ResponseWrapper(localName = "getOccupationFromSkillResponse", targetNamespace = "http://dol.com/", className = "com.statisticsservice.dolservices.GetOccupationFromSkillResponse")
+    @Action(input = "http://dol.com/DOLService/getOccupationFromSkillRequest", output = "http://dol.com/DOLService/getOccupationFromSkillResponse")
+    public List<Occupation> getOccupationFromSkill(
         @WebParam(name = "skillID", targetNamespace = "")
-        String skillID)
-        throws NonexistentSkillException_Exception
-    ;
+        String skillID);
 
 }

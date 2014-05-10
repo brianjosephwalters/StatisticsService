@@ -60,6 +60,18 @@ public interface CourseService {
 
     /**
      * 
+     * @return
+     *     returns java.util.List<com.statisticsservice.courseservice.Course>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getAllCourses", targetNamespace = "http://courseservice.com/", className = "com.statisticsservice.courseservice.GetAllCourses")
+    @ResponseWrapper(localName = "getAllCoursesResponse", targetNamespace = "http://courseservice.com/", className = "com.statisticsservice.courseservice.GetAllCoursesResponse")
+    @Action(input = "http://courseservice.com/CourseService/getAllCoursesRequest", output = "http://courseservice.com/CourseService/getAllCoursesResponse")
+    public List<Course> getAllCourses();
+
+    /**
+     * 
      * @param courseCode
      * @return
      *     returns java.util.List<com.statisticsservice.courseservice.Section>
@@ -105,18 +117,6 @@ public interface CourseService {
     public List<Integer> getCourseSkillCodes(
         @WebParam(name = "courseCode", targetNamespace = "")
         String courseCode);
-
-    /**
-     * 
-     * @return
-     *     returns java.util.List<com.statisticsservice.courseservice.Course>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getAllCourses", targetNamespace = "http://courseservice.com/", className = "com.statisticsservice.courseservice.GetAllCourses")
-    @ResponseWrapper(localName = "getAllCoursesResponse", targetNamespace = "http://courseservice.com/", className = "com.statisticsservice.courseservice.GetAllCoursesResponse")
-    @Action(input = "http://courseservice.com/CourseService/getAllCoursesRequest", output = "http://courseservice.com/CourseService/getAllCoursesResponse")
-    public List<Course> getAllCourses();
 
     /**
      * 

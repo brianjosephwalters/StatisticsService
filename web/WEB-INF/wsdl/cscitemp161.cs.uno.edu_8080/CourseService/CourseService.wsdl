@@ -19,6 +19,12 @@
 <message name="getActiveCoursesResponse">
 <part name="parameters" element="tns:getActiveCoursesResponse"/>
 </message>
+<message name="getAllCourses">
+<part name="parameters" element="tns:getAllCourses"/>
+</message>
+<message name="getAllCoursesResponse">
+<part name="parameters" element="tns:getAllCoursesResponse"/>
+</message>
 <message name="getAllSectionsOfCourse">
 <part name="parameters" element="tns:getAllSectionsOfCourse"/>
 </message>
@@ -36,12 +42,6 @@
 </message>
 <message name="getCourseSkillCodesResponse">
 <part name="parameters" element="tns:getCourseSkillCodesResponse"/>
-</message>
-<message name="getAllCourses">
-<part name="parameters" element="tns:getAllCourses"/>
-</message>
-<message name="getAllCoursesResponse">
-<part name="parameters" element="tns:getAllCoursesResponse"/>
 </message>
 <message name="getInactiveCourses">
 <part name="parameters" element="tns:getInactiveCourses"/>
@@ -68,6 +68,10 @@
 <input wsam:Action="http://courseservice.com/CourseService/getActiveCoursesRequest" message="tns:getActiveCourses"/>
 <output wsam:Action="http://courseservice.com/CourseService/getActiveCoursesResponse" message="tns:getActiveCoursesResponse"/>
 </operation>
+<operation name="getAllCourses">
+<input wsam:Action="http://courseservice.com/CourseService/getAllCoursesRequest" message="tns:getAllCourses"/>
+<output wsam:Action="http://courseservice.com/CourseService/getAllCoursesResponse" message="tns:getAllCoursesResponse"/>
+</operation>
 <operation name="getAllSectionsOfCourse">
 <input wsam:Action="http://courseservice.com/CourseService/getAllSectionsOfCourseRequest" message="tns:getAllSectionsOfCourse"/>
 <output wsam:Action="http://courseservice.com/CourseService/getAllSectionsOfCourseResponse" message="tns:getAllSectionsOfCourseResponse"/>
@@ -79,10 +83,6 @@
 <operation name="getCourseSkillCodes">
 <input wsam:Action="http://courseservice.com/CourseService/getCourseSkillCodesRequest" message="tns:getCourseSkillCodes"/>
 <output wsam:Action="http://courseservice.com/CourseService/getCourseSkillCodesResponse" message="tns:getCourseSkillCodesResponse"/>
-</operation>
-<operation name="getAllCourses">
-<input wsam:Action="http://courseservice.com/CourseService/getAllCoursesRequest" message="tns:getAllCourses"/>
-<output wsam:Action="http://courseservice.com/CourseService/getAllCoursesResponse" message="tns:getAllCoursesResponse"/>
 </operation>
 <operation name="getInactiveCourses">
 <input wsam:Action="http://courseservice.com/CourseService/getInactiveCoursesRequest" message="tns:getInactiveCourses"/>
@@ -117,6 +117,15 @@
 <soap:body use="literal"/>
 </output>
 </operation>
+<operation name="getAllCourses">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
 <operation name="getAllSectionsOfCourse">
 <soap:operation soapAction=""/>
 <input>
@@ -136,15 +145,6 @@
 </output>
 </operation>
 <operation name="getCourseSkillCodes">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="getAllCourses">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

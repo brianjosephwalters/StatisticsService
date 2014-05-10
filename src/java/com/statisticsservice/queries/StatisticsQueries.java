@@ -266,7 +266,7 @@ public class StatisticsQueries {
     
     public List<String> getMostSearchedCertificates(Integer max) 
             throws SQLException {
-        String query = " SELECT * FROM stats_certificates_searches "
+        String query = " SELECT * FROM stats_certificate_searches "
                 + " ORDER BY count DESC ";
         Statement stmt = connection.createStatement();
         ResultSet results = stmt.executeQuery(query);

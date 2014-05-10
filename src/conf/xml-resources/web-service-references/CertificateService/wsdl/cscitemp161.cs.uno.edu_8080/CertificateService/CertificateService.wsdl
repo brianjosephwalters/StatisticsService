@@ -10,6 +10,12 @@
 <message name="getAllCertificatesResponse">
 <part name="parameters" element="tns:getAllCertificatesResponse"/>
 </message>
+<message name="getExamsForCertificate">
+<part name="parameters" element="tns:getExamsForCertificate"/>
+</message>
+<message name="getExamsForCertificateResponse">
+<part name="parameters" element="tns:getExamsForCertificateResponse"/>
+</message>
 <message name="getAllUpcomingExamsForCertificate">
 <part name="parameters" element="tns:getAllUpcomingExamsForCertificate"/>
 </message>
@@ -24,12 +30,6 @@
 </message>
 <message name="NonexistentExamTypeException">
 <part name="fault" element="tns:NonexistentExamTypeException"/>
-</message>
-<message name="getExamsForCertificate">
-<part name="parameters" element="tns:getExamsForCertificate"/>
-</message>
-<message name="getExamsForCertificateResponse">
-<part name="parameters" element="tns:getExamsForCertificateResponse"/>
 </message>
 <message name="getExamTypeForCertificate">
 <part name="parameters" element="tns:getExamTypeForCertificate"/>
@@ -57,6 +57,10 @@
 <input wsam:Action="http://certificateservice.com/CertificateService/getAllCertificatesRequest" message="tns:getAllCertificates"/>
 <output wsam:Action="http://certificateservice.com/CertificateService/getAllCertificatesResponse" message="tns:getAllCertificatesResponse"/>
 </operation>
+<operation name="getExamsForCertificate">
+<input wsam:Action="http://certificateservice.com/CertificateService/getExamsForCertificateRequest" message="tns:getExamsForCertificate"/>
+<output wsam:Action="http://certificateservice.com/CertificateService/getExamsForCertificateResponse" message="tns:getExamsForCertificateResponse"/>
+</operation>
 <operation name="getAllUpcomingExamsForCertificate">
 <input wsam:Action="http://certificateservice.com/CertificateService/getAllUpcomingExamsForCertificateRequest" message="tns:getAllUpcomingExamsForCertificate"/>
 <output wsam:Action="http://certificateservice.com/CertificateService/getAllUpcomingExamsForCertificateResponse" message="tns:getAllUpcomingExamsForCertificateResponse"/>
@@ -65,10 +69,6 @@
 <input wsam:Action="http://certificateservice.com/CertificateService/getExamTypeRequest" message="tns:getExamType"/>
 <output wsam:Action="http://certificateservice.com/CertificateService/getExamTypeResponse" message="tns:getExamTypeResponse"/>
 <fault message="tns:NonexistentExamTypeException" name="NonexistentExamTypeException" wsam:Action="http://certificateservice.com/CertificateService/getExamType/Fault/NonexistentExamTypeException"/>
-</operation>
-<operation name="getExamsForCertificate">
-<input wsam:Action="http://certificateservice.com/CertificateService/getExamsForCertificateRequest" message="tns:getExamsForCertificate"/>
-<output wsam:Action="http://certificateservice.com/CertificateService/getExamsForCertificateResponse" message="tns:getExamsForCertificateResponse"/>
 </operation>
 <operation name="getExamTypeForCertificate">
 <input wsam:Action="http://certificateservice.com/CertificateService/getExamTypeForCertificateRequest" message="tns:getExamTypeForCertificate"/>
@@ -87,6 +87,15 @@
 <binding name="CertificateServicePortBinding" type="tns:CertificateService">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
 <operation name="getAllCertificates">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="getExamsForCertificate">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -115,15 +124,6 @@
 <fault name="NonexistentExamTypeException">
 <soap:fault name="NonexistentExamTypeException" use="literal"/>
 </fault>
-</operation>
-<operation name="getExamsForCertificate">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
 </operation>
 <operation name="getExamTypeForCertificate">
 <soap:operation soapAction=""/>

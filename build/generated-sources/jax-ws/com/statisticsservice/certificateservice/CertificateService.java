@@ -46,6 +46,21 @@ public interface CertificateService {
      */
     @WebMethod
     @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getExamsForCertificate", targetNamespace = "http://certificateservice.com/", className = "com.statisticsservice.certificateservice.GetExamsForCertificate")
+    @ResponseWrapper(localName = "getExamsForCertificateResponse", targetNamespace = "http://certificateservice.com/", className = "com.statisticsservice.certificateservice.GetExamsForCertificateResponse")
+    @Action(input = "http://certificateservice.com/CertificateService/getExamsForCertificateRequest", output = "http://certificateservice.com/CertificateService/getExamsForCertificateResponse")
+    public List<Exam> getExamsForCertificate(
+        @WebParam(name = "certificateCode", targetNamespace = "")
+        String certificateCode);
+
+    /**
+     * 
+     * @param certificateCode
+     * @return
+     *     returns java.util.List<com.statisticsservice.certificateservice.Exam>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
     @RequestWrapper(localName = "getAllUpcomingExamsForCertificate", targetNamespace = "http://certificateservice.com/", className = "com.statisticsservice.certificateservice.GetAllUpcomingExamsForCertificate")
     @ResponseWrapper(localName = "getAllUpcomingExamsForCertificateResponse", targetNamespace = "http://certificateservice.com/", className = "com.statisticsservice.certificateservice.GetAllUpcomingExamsForCertificateResponse")
     @Action(input = "http://certificateservice.com/CertificateService/getAllUpcomingExamsForCertificateRequest", output = "http://certificateservice.com/CertificateService/getAllUpcomingExamsForCertificateResponse")
@@ -72,21 +87,6 @@ public interface CertificateService {
         String examTypeCode)
         throws NonexistentExamTypeException_Exception
     ;
-
-    /**
-     * 
-     * @param certificateCode
-     * @return
-     *     returns java.util.List<com.statisticsservice.certificateservice.Exam>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getExamsForCertificate", targetNamespace = "http://certificateservice.com/", className = "com.statisticsservice.certificateservice.GetExamsForCertificate")
-    @ResponseWrapper(localName = "getExamsForCertificateResponse", targetNamespace = "http://certificateservice.com/", className = "com.statisticsservice.certificateservice.GetExamsForCertificateResponse")
-    @Action(input = "http://certificateservice.com/CertificateService/getExamsForCertificateRequest", output = "http://certificateservice.com/CertificateService/getExamsForCertificateResponse")
-    public List<Exam> getExamsForCertificate(
-        @WebParam(name = "certificateCode", targetNamespace = "")
-        String certificateCode);
 
     /**
      * 
